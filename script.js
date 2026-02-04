@@ -11,6 +11,11 @@ const lista = [
     t : "png"
   },
   {
+    n: "images",
+    v : "luiz gosta da amazonia",
+    t: "jpeg"
+  },
+  {
     n: "ga",
     v : "gato trabalhando",
     t : "jpg"
@@ -42,6 +47,9 @@ function getImage(nome, tipo) {
   window.open(`p/${nome}.${tipo}`, "_blank")
 }
 const quadros = document.getElementById("quadros")
+const pe = document.createElement("p")
+pe.innerHTML = `no total foi procurado ${lista.length} imagens`;
+quadros.appendChild(pe)
 lista.forEach((item) => {
   const div = document.createElement("div")
   div.id = `quadro-${item.n}`;
@@ -49,7 +57,7 @@ lista.forEach((item) => {
   div.innerHTML = `
     ${typeof item.v === 'string'? `<h3>${item.v}</h3>` : ""}
     <img src="p/${item.n}.${item.t}" alt="${item.v}"
-    style="width: 200px; height: 40%; margin: 10px; ${item.t !== "jpg" ? "" : "border: 1px solid black; border-radius: 5px;"}"
+    style="width: 200px; height: 40%; margin: 10px; ${item.t !== "jpg" || "jpeg" ? "" : "border: 1px solid black; border-radius: 5px;"}"
     onClick="getImage('${item.n}', '${item.t}')">`;
   quadros.appendChild(div)
 })
