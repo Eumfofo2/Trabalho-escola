@@ -40,6 +40,14 @@ html {
         padding: 10px;
         border-radius: 10px;
         box-shadow: red 2px 2px 10px;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+      div:hover {
+        box-shadow: #f5f5f5 2px 2px 10px;
+        transform: scale(1.1)
+        cursor: pointer;
+        transition: 0.5s;
       }
     }
   }

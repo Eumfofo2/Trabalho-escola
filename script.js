@@ -36,7 +36,11 @@ const lista = [
     t: "jpg"
   }
 ]
-// operação 
+// operação
+function getImage(nome, tipo) {
+  // abirr imagem
+  window.open(`p/${nome}.${tipo}`, "_blank")
+}
 const quadros = document.getElementById("quadros")
 lista.forEach((item) => {
   const div = document.createElement("div")
@@ -45,8 +49,7 @@ lista.forEach((item) => {
   div.innerHTML = `
     ${typeof item.v === 'string'? `<h3>${item.v}</h3>` : ""}
     <img src="p/${item.n}.${item.t}" alt="${item.v}"
-    
-    style="width: 200px; height: 40%; margin: 10px; ${item.t !== "jpg" ? "" : "border: 1px solid black; border-radius: 5px;"}">
-  `;
+    style="width: 200px; height: 40%; margin: 10px; ${item.t !== "jpg" ? "" : "border: 1px solid black; border-radius: 5px;"}"
+    onClick="getImage('${item.n}', '${item.t}')">`;
   quadros.appendChild(div)
 })
