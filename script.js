@@ -61,3 +61,10 @@ lista.forEach((item) => {
     onClick="getImage('${item.n}', '${item.t}')">`;
   quadros.appendChild(div)
 })
+// monitorar perfomance
+const banana = document.createElement("p")
+banana.innerHTML = `tempo de car.: ${performance.now().toFixed(2)}ms`
+quadros.appendChild(banana)
+const ram =  document.createElement("p")
+ram.innerHTML = `ram: ${(performance.memory.usedJSHeapSize / 1024 / 1024 / 1024).toFixed(2)} gb`
+quadros.appendChild(ram)
